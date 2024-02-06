@@ -1,11 +1,11 @@
 {
   "name": "weird_icecream_flavour",
   "version": "1.0.0",
-  "description": "\"\"",
+  "description": "This website allow users to share and discuss the weirdest ice cream flavours they believe have been created. ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "shahina",
   "license": "ISC"
 }
