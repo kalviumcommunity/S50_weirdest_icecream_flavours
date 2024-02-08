@@ -3,9 +3,9 @@ const app = express();
 const port = 3000;
 
 app.get('/ping',(req,res)=>{
-    res.send('pong')
+    res.send('<h1>pong</h1>')
   })
-
+  
   
   if (require.main === module) {
     app.listen(port, () => {
