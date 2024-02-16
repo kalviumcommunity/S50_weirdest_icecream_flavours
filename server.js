@@ -1,16 +1,25 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3005;
+require('dotenv').config();
+const connectDb = require('./config/connect'); 
+const router = require('./routes/user_'); 
 
-app.get('/ping',(req,res)=>{
-    res.send('<h1>pong</h1>')
-  })
-  
-  
-  if (require.main === module) {
+connectDb(); 
+
+app.use(express.json()); 
+
+// Routes
+app.get('/ping', (req, res) => {
+    res.send('<h1>pong</h1>');
+});
+
+app.use("/", router); 
+
+if (require.main === module) {
     app.listen(port, () => {
-      console.log(`🚀 server running on PORT: ${port}`);
+        console.log(`🚀 server running on PORT: ${port}`);
     });
-  }
-  
-  module.exports = app;
+}
+
+module.exports = app;

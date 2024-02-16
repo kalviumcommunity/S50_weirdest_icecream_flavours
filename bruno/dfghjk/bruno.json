@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "xfghj",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
