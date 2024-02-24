@@ -19,15 +19,7 @@ function Portal() {
     )
    })}
    
-   
-    {/* <div className='Logo'><img src={img} alt="" /></div>
-    <div className='Circular-div'>
-  <div className='circle'>
-  
-  </div>
-  </div> */}
 
-<div></div>
 
 
     </>
