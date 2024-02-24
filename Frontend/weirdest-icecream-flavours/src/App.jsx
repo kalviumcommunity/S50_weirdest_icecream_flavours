@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import{Route,Routes,Link} from 'react-router-dom'
+import{Route,Routes} from 'react-router-dom'
 import './App.css'
-import './components/Home'
-import Home from './components/Home'
+
+import Portal from "./components/Portal"
+import Home from "./components/Home"
 
 function App() {
   
@@ -10,6 +10,9 @@ function App() {
   return (
     <Routes>
      <Route path='/' element={<Home/>}/>
+
+     <Route path='/Portal' element={<Portal/>}/>
+
     </Routes>
   )
 }
