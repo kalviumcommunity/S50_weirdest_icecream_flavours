@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../App.css'
 function Home() {
   return (
@@ -21,7 +22,7 @@ function Home() {
 
 <input 
         className="border mt-4 border-gray-300 rounded-md px-4 py-2 w-5/6 focus:outline-none focus:border-rose-900"
-        type="text"
+        type="email"
         placeholder="E-mail:"
       />
 
@@ -29,14 +30,18 @@ function Home() {
 
 <input 
         className="border mt-4 border-gray-300 rounded-md px-4 py-2 w-5/6 focus:outline-none focus:border-rose-900"
-        type="text"
+        type="password"
         placeholder="Password:"
       />
       <br />
 
-<button class="transition mt-4 ml-28 w-36 h-10 text-white rounded-md duration-150 bg-rose-900 hover:-translate-y-1 hover:scale-110 hover:bg-rose-700 duration-300 ">
+      <p>Already have an account? <a href=""><u>Sign In</u></a></p>
+
+ <Link to="/Portal">
+<button  type="submit" className="transition mt-4 ml-28 w-36 h-10 text-white rounded-md duration-150 bg-rose-900 hover:-translate-y-1 hover:scale-110 hover:bg-rose-700 duration-300  ">
   Sign Up
-</button>
+</button></Link>
+
  </div>
 
  

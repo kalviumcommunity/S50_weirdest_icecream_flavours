@@ -1,0 +1,28 @@
+/* .circle{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(235, 202, 211);
+    border-radius: 50%;
+    
+}
+
+.Circular-div{
+   margin-top: -10%;
+display: flex;
+justify-content:center;
+}
+
+img{
+    height: 10%;
+    width: 10%;
+    
+} */
+
+.datas{
+    width: 200px;
+    height: 100px;
+    border: 2px solid rgb(126, 21, 61);
+    border-radius:10px ;
+    margin: 10px;
+    padding: 10px;
+}
