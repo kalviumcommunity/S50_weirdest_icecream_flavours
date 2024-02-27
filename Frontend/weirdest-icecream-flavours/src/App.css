@@ -1,28 +1,146 @@
-/* .circle{
-    width: 500px;
-    height: 500px;
-    background-color: rgb(235, 202, 211);
-    border-radius: 50%;
+body{
+    background-color: rgb(245, 245, 245);
+overflow: hidden;
+  
+}
+
+.bg{
+height: 100%;
+overflow: auto;
+
+
+}
+ul{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+
+}
+nav{
+    padding: 1%;
+display: block;
+justify-content: center;
+align-items: center;
+
+}
+
+
+li{
+    cursor: pointer;
+    border-top: 2px;
     
 }
 
-.Circular-div{
-   margin-top: -10%;
-display: flex;
-justify-content:center;
+li:hover{
+    text-decoration:overline;
+    border-top-color: solid rgb(126, 58, 83);
+    
+
+
+   
 }
 
-img{
-    height: 10%;
-    width: 10%;
+.user{
+    height: 40px;
+    width:130px;
+    border:2px solid rgb(90, 22, 59);
+    background-color: rgb(94, 35, 57);
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+.whole{
+  height: 84vh;
+}
+.one-div{
+  
+    /* height: 100vh; */
+    width: 400px;
+}
+
+.three-div{
+ 
+    /* height: 100vh; */
+    width: 300px;
+}
+
+.user:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.userpg{
+    height:20px ;
+    width: 20px ;
+}
+
+.post-div{
+  
+    width: 500px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(91, 23, 46) rgb(241, 241, 241);
+  
+}
+
+  
+
+
+
+.hme-post{
+ 
+  
+    width: 400px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(224, 224, 224);
+    color: rgb(94, 35, 57);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    /* border: 2px solid blue; */
+}
+
+/* .hme-post:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: rgb(209, 209, 209);
+    color:   rgb(94, 35, 57); 
+    box-shadow:  2px 4px 4px 0px rgba(0, 0, 0, 0.4);
     
 } */
 
-.datas{
+.des{
+   margin-top: 10px;
+}
+
+.title{
+    margin-top: 60px;
+}
+.img-post{
+    padding-top: 10px;
+    height:200px;
+    width: 200px; 
+}
+
+.like{
+    padding-top: 10px;
+}
+
+.icecreams{
+    border-radius: 10px;
+    width: 200px;
+    height: 250px;
+}
+
+/* .datas{
     width: 200px;
     height: 100px;
     border: 2px solid rgb(126, 21, 61);
     border-radius:10px ;
     margin: 10px;
     padding: 10px;
-}
+} */
