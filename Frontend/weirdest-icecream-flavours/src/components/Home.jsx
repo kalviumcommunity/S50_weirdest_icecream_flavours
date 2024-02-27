@@ -10,9 +10,7 @@ function Home() {
 
 const onSubmit = (data) => {
   setuserdata(data);
-    setTimeout(() => {
       navigate('/Portal');
-    }, 1000); 
   }
 
   console.log(errors)
