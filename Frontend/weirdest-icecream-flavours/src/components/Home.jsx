@@ -8,12 +8,28 @@ function Home() {
   const[userdata,setuserdata]=useState(); 
   const navigate=useNavigate();
 
-const onSubmit = (data) => {
-  setuserdata(data);
-      navigate('/Portal');
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch('http://localhost:3006/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) {
+        setuserdata(data);
+        setTimeout(() => {
+          navigate('/Portal');
+        }, 1005);
+      } else {
+        console.error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   }
 
-  console.log(errors)
   return (
     <> 
 
