@@ -10,7 +10,7 @@ function Home() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://localhost:3006/posts', {
+      const response = await fetch('http://localhost:3006/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,23 +45,23 @@ function Home() {
   <form onSubmit={handleSubmit(onSubmit)} className="max-w-md  mx-auto">
   <input 
         className="border mt-2 border-gray-300 rounded-md px-4 py-2 w-5/6 focus:outline-none focus:border-rose-900"
-        type="name" name="name"
-        placeholder="Name:" {...register('name', { required: "Username is required", minLength: { value: 4, message: "Username must be more than 4 characters" }, maxLength: { value: 15, message: "Username must be less than 15 characters" } })}
+        type="name" name="UserName"
+        placeholder="Name:" {...register('UserName', { required: "Username is required", minLength: { value: 4, message: "Username must be more than 4 characters" }, maxLength: { value: 15, message: "Username must be less than 15 characters" } })}
       />
       <p className='text-rose-900'>{errors.name?.message}</p>
 
 <input 
         className="border mt-2 border-gray-300 rounded-md px-4 py-2 w-5/6 focus:outline-none focus:border-rose-900"
-        type="email"  name="email"
-        placeholder="E-mail:"  {...register('email', { required: "E-mail is required", pattern: { value: /^\S+@\S+$/i, message: "This is not a valid email" } })}
+        type="email"  name="Email"
+        placeholder="E-mail:"  {...register('Email', { required: "E-mail is required", pattern: { value: /^\S+@\S+$/i, message: "This is not a valid email" } })}
       />
 <p className='text-rose-900'>{errors.email?.message}</p>
 
 
 <input 
         className="border mt-2 border-gray-300 rounded-md px-4 py-2 w-5/6 focus:outline-none focus:border-rose-900"
-        type="password"   name="password"
-        placeholder="Password:"{...register('password', { required: "Password is required", minLength: { value: 4, message: "Password must be more than 4 characters" }, maxLength: { value: 10, message: "Password must be less than 10 characters" } })}
+        type="password"   name="Password"
+        placeholder="Password:"{...register('Password', { required: "Password is required", minLength: { value: 4, message: "Password must be more than 4 characters" }, maxLength: { value: 10, message: "Password must be less than 10 characters" } })}
       />
       <p className='text-rose-900'>{errors.password?.message}</p>
       <br />

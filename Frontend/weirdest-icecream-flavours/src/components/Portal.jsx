@@ -1,11 +1,9 @@
   import React, { useState, useEffect } from 'react'
   import '../App.css'
   import { Link } from 'react-router-dom';
-  // import data from '../data.json'
-  // import img from '../assets/logo.png'
   import user from '../assets/user.png'
   import axios from 'axios';
-  import heart from '../assets/heart.gif'
+  
   function Portal() {
     const [postdata, setpostdata] = useState([]);
     useEffect(() => {
