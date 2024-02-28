@@ -77,8 +77,7 @@ function Home() {
                 </>
               )}
  </form>
- {/* <pre>{JSON.stringify(userdata,undefined,2)}</pre>
-  */}
+
  </div>
 </div>
 
