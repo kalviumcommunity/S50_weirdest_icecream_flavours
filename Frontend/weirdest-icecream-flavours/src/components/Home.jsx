@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form'
 import '../App.css'
+
 function Home() {
   const {register,handleSubmit,formState:{errors}}=useForm();
   const[userdata,setuserdata]=useState(); 
