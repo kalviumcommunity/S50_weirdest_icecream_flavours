@@ -33,7 +33,7 @@ const Edit=(e)=>{
   .then(result=>{console.log(result)
    navigate('/Portal')
   })
-
+  .catch(err=>console.log(err))
 }
 
   return (
