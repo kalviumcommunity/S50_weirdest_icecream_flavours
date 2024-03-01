@@ -1,12 +1,18 @@
   import React, { useState, useEffect } from 'react'
   import '../App.css'
   import { Link } from 'react-router-dom';
-  // import data from '../data.json'
-  // import img from '../assets/logo.png'
   import user from '../assets/user.png'
+  import bin from '../assets/bin.png'
+import add from '../assets/add.png'
+  import editing from '../assets/editing.png'
   import axios from 'axios';
-  import heart from '../assets/heart.gif'
+  
   function Portal() {
+
+  
+
+
+
     const [postdata, setpostdata] = useState([]);
     useEffect(() => {
       const fetchData = async () => {
@@ -25,7 +31,13 @@
       console.log(postdata);
     }, [postdata]);
 
-
+const handleDelete=(id)=>{
+  axios.delete(`http://localhost:3006/posts/${id}`)
+  .then(res=>{
+    setpostdata(prevPostdata=>prevPostdata.filter(post=> post._id !== id))
+    console.log(res)})
+  .catch(error=>console.log(error))
+}
 
     return (
       <div className='body '>
@@ -52,9 +64,14 @@
 
         <div className='whole border flex justify-around mt-10'>
 
-  <div className='one-div'> </div>
+  <div className='one-div'> 
+  <Link to="/Add">
+              <div className='add-post'>  <img className="add" src={add} alt="" />Add Post</div>
+            </Link>
+  
+  </div>
 
-  <div className='post-div '>
+  <div className='post-div'>
             {postdata.map((post, index) => (
               <div className='hme-post' key={index}>
                 <h2>{post.UserName}</h2>
@@ -64,6 +81,12 @@
                 <h2 className='title'>{post.Title}</h2>
                 <h2 className='des'>{post.Description}</h2>
                 <h2 className='like'>😛{post.Like}</h2>
+                <div className='update'>
+
+                 <Link to={`/Update/${post._id}`}><img className='edit' src={editing} alt="" /></Link>
+                
+                <img className='bin' onClick={(e)=>handleDelete(post._id)} src={bin} alt="" />
+                </div>
               </div>
             ))}
           </div>

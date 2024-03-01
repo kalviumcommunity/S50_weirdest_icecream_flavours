@@ -6,6 +6,8 @@ import Home from "./components/Home"
 import Posts from './components/Posts'
 import Topteir from './components/Topteir'
 import User from './components/User'
+import Update from './components/Update'
+import Add from './components/Add'
 
 function App() {
   
@@ -14,7 +16,9 @@ function App() {
     <Routes>
      <Route path='/' element={<Home/>}/>
      <Route path='/Portal' element={<Portal/>}/>
+     <Route path='/Add' element={<Add/>}/>
      <Route path='/User' element={<User/>}/>
+     <Route path='/Update/:id' element={<Update/>}/>
      <Route path='/Posts' element={<Posts/>}/>
      <Route path='/Topteir' element={<Topteir/>}/>
 
