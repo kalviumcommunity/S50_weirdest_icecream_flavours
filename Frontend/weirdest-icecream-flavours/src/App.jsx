@@ -8,6 +8,7 @@ import Topteir from './components/Topteir'
 import User from './components/User'
 import Update from './components/Update'
 import Add from './components/Add'
+import SignIn from './components/SignIn'
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
      <Route path='/Update/:id' element={<Update/>}/>
      <Route path='/Posts' element={<Posts/>}/>
      <Route path='/Topteir' element={<Topteir/>}/>
-
+     <Route path='/SignIn' element={<SignIn/>}/>
     </Routes>
   )
 }

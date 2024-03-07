@@ -1,14 +1,17 @@
   import React, { useState, useEffect } from 'react'
   import '../App.css'
-  import { Link } from 'react-router-dom';
+  import { Link, useNavigate} from 'react-router-dom';
   import user from '../assets/user.png'
   import bin from '../assets/bin.png'
-import add from '../assets/add.png'
+  import add from '../assets/add.png'
   import editing from '../assets/editing.png'
   import axios from 'axios';
+  import Cookies from 'js-cookie';
   
   function Portal() {
     const [postdata, setpostdata] = useState([]);
+    const username=Cookies.get('username')
+    const navigate = useNavigate();
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -34,6 +37,15 @@ const handleDelete=(id)=>{
   .catch(error=>console.log(error))
 }
 
+const LogOut=()=>{
+  const confirmLogout = window.confirm("Are you sure you want to log out?");
+  if (confirmLogout) {
+    Cookies.remove('username');
+    navigate('/');
+  }
+}
+
+
     return (
       <div className='body '>
 
@@ -51,9 +63,9 @@ const handleDelete=(id)=>{
               <li>POST</li>
             </Link>
 
-            <Link to="/User">
-              <div className='user'>  <img className="userpg" src={user} alt="" /> Username</div>
-            </Link>
+          <div className='user' onClick={LogOut}>
+              <div className='user'>  <img className="userpg" src={user} alt="" /> {username}</div>
+              </div>
           </ul>
         </nav>
 
