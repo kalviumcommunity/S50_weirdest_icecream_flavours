@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form'
+import { Link } from 'react-router-dom';
 import '../App.css'
 import axios from 'axios'
 
@@ -10,23 +11,23 @@ function Home() {
   const[userdata,setuserdata]=useState(); 
   const navigate=useNavigate();
   const onSubmit = async (data) => {
-    // console.log(data)
+   
     try {
-        // Send a POST request to the server using axios
+
         const response = await axios.post('http://localhost:3006/users', {data}, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         if (response.status === 200) {
-            setuserdata(data); // Update the userdata state
-            alert("Sighned up successfully")
-            navigate('/Portal'); // Navigate to the Portal page
+            setuserdata(data); 
+            alert("Siged up successfully")
+            navigate('/Portal'); 
         } else {
             console.error('Failed to submit form');
         }
     } catch (error) {
-        console.error('Error submitting form:', error); // Log any errors that occur during the request
+        console.error('Error submitting form:', error); 
     }
 }
 
@@ -70,7 +71,7 @@ function Home() {
                 <p className="text-rose-900 font-bold text-lg mt-4">Signed up successfully!</p>
               ) : (
                 <>
-                  <p>Already have an account? <a href=""><u>Sign In</u></a></p>
+                  <p>Already have an account? <Link to="/SignIn"><u>Sign In</u></Link></p>
                   <button type="submit" className="transition mt-2  ml-28 w-36 h-10 text-white rounded-md duration-150 bg-rose-900 hover:-translate-y-1 hover:scale-110 hover:bg-rose-700 duration-300 ">
                     Sign Up
                   </button>
