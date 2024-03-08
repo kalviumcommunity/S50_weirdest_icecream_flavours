@@ -8,11 +8,6 @@ import add from '../assets/add.png'
   import axios from 'axios';
   
   function Portal() {
-
-  
-
-
-
     const [postdata, setpostdata] = useState([]);
     useEffect(() => {
       const fetchData = async () => {

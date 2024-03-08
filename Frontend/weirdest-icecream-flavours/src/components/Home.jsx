@@ -3,33 +3,32 @@ import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form'
 import '../App.css'
+import axios from 'axios'
 
 function Home() {
   const {register,handleSubmit,formState:{errors}}=useForm();
   const[userdata,setuserdata]=useState(); 
   const navigate=useNavigate();
-
   const onSubmit = async (data) => {
+    // console.log(data)
     try {
-      const response = await fetch('http://localhost:3006/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      if (response.ok) {
-        setuserdata(data);
-        setTimeout(() => {
-          navigate('/Portal');
-        }, 1005);
-      } else {
-        console.error('Failed to submit form');
-      }
+        // Send a POST request to the server using axios
+        const response = await axios.post('http://localhost:3006/users', {data}, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.status === 200) {
+            setuserdata(data); // Update the userdata state
+            alert("Sighned up successfully")
+            navigate('/Portal'); // Navigate to the Portal page
+        } else {
+            console.error('Failed to submit form');
+        }
     } catch (error) {
-      console.error('Error submitting form:', error);
+        console.error('Error submitting form:', error); // Log any errors that occur during the request
     }
-  }
+}
 
   return (
     <> 
