@@ -5,22 +5,30 @@ import {useForm} from 'react-hook-form'
 import { Link } from 'react-router-dom';
 import '../App.css'
 import axios from 'axios'
+import Cookies from 'js-cookie';
 
 function Home() {
   const {register,handleSubmit,formState:{errors}}=useForm();
-  const[userdata,setuserdata]=useState(); 
+  const[userdata,setuserdata]=useState(null); 
   const navigate=useNavigate();
-  const onSubmit = async (data) => {
-   
-    try {
 
-        const response = await axios.post('http://localhost:3006/users', {data}, {
+  const onSubmit = async (data) => {
+    try {
+      const { UserName, Email, Password } = data;
+        const response = await axios.post('http://localhost:3006/users', {UserName,Email,Password}, {
             headers: {
                 'Content-Type': 'application/json'
             }
+             
         });
-        if (response.status === 200) {
-            setuserdata(data); 
+        if (response.status === 201) {
+          const{userData,token}=response.data;
+          console.log(UserName)
+            Cookies.set('username',UserName)
+            Cookies.set('userData',userData)
+          Cookies.set('token',token,{expires:1})
+          setuserdata(userData); 
+
             alert("Siged up successfully")
             navigate('/Portal'); 
         } else {

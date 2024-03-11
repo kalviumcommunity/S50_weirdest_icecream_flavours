@@ -33,8 +33,8 @@ function SignIn() {
                 (user) => user.UserName === formData.UserName && user.Password === formData.Password
             );
             if (user) {
-                console.log(user);
                 Cookies.set("username",user.UserName);
+                console.log(user);
                 setSub(true);
                 navigate("/Portal");
             } else {
