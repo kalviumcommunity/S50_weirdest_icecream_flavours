@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
-const port = 3005;
+
 require('dotenv').config();
+const port=process.env.PORT||3006;
 const connectDb = require('./config/connect'); 
 const user_router = require('./routes/user_'); 
 const post_router = require('./routes/post_'); 
+const cors=require("cors")
+const Joi = require('joi')
 
-
-connectDb(); 
+connectDb(process.env.MONGO_URI); 
+app.use(cors())
 
 app.use(express.json()); 
 
