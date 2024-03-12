@@ -10,7 +10,10 @@ import Cookies from 'js-cookie';
 
 function Portal() {
   const [postdata, setPostData] = useState([]);
-  const username =  Cookies.get('username');
+  // const[post,setPost]=useState([])
+  const [filterPost, setfilterPost] = useState([])
+  const [userSelected, setuserSelected] = useState('')
+  const username = Cookies.get('username');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +21,7 @@ function Portal() {
       try {
         const response = await axios.get("http://localhost:3006/posts");
         setPostData(response.data);
+        setfilterPost(response.data)
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -34,10 +38,25 @@ function Portal() {
     axios.delete(`http://localhost:3006/posts/${id}`)
       .then(res => {
         setPostData(prevPostdata => prevPostdata.filter(post => post._id !== id));
-        console.log(res);
+        setfilterPost(prevFilterPost => prevFilterPost.filter(post => post._id !== id));
+        
+        // console.log(res);
       })
       .catch(error => console.log(error));
   }
+
+  const userSelectFun = (e) => {
+    if (e === 'All' || e === '' ) {
+      setfilterPost(postdata)
+    }
+    else {
+      const filter = postdata.filter(post => post.UserName == e)
+      setfilterPost(filter)
+    }
+
+  }
+
+  const names = Array.from(new Set(postdata.map(post => post.UserName)))
 
   const LogOut = () => {
     const confirmLogout = window.confirm("Are you sure you want to log out?");
@@ -50,18 +69,23 @@ function Portal() {
   }
 
   return (
+
     <div className='body'>
       <nav className='nav'>
         <ul>
-          <Link to="/Portal">
-            <li>HOME</li>
-          </Link>
-          <Link to="/Topteir">
-            <li>TOP-TIER</li>
-          </Link>
-          <Link to="/Posts">
-            <li>POST</li>
-          </Link>
+          <li>HOME</li>
+
+          <div>
+            <select className=' border outline-rose-900 border-rose-900 rounded-xl w-60 h-9' id='filter' onChange={(e) => userSelectFun(e.target.value)}>
+              <option value="">Select Users</option>
+              <option value="">All</option>
+              {names.map((name, index) => (
+                <option key={index} value={name}>{name}</option>
+              ))}
+
+            </select>
+          </div>
+
           <div className='user' onClick={LogOut}>
             <div className='user'>  <img className="userpg" src={user} alt="" /> {username}</div>
           </div>
@@ -76,7 +100,7 @@ function Portal() {
         </div>
 
         <div className='post-div'>
-          {postdata.map((post, index) => (
+          {filterPost.map((post, index) => (
             <div className='hme-post' key={index}>
               <h2>{post.UserName}</h2>
               <div className='img-post'>

@@ -38,10 +38,10 @@ function SignIn() {
                 setSub(true);
                 navigate("/Portal");
             } else {
-                console.log("Invalid email or password");
+                alert("Invalid email or password")     
             }
         } else {
-            console.log("User data is not available yet.");
+            alert("User data is not available yet.");
         }
     }
     
@@ -73,7 +73,7 @@ function SignIn() {
     
     <button type="submit" className="transition mt-4 ml-28 w-36 h-10 text-white rounded-md duration-150 bg-rose-900 hover:-translate-y-1 hover:scale-110 hover:bg-rose-700 duration-300 ">
                     Sign In
-                  </button>
+    </button>
        
      </form>
     
