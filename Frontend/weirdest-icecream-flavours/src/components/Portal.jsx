@@ -38,13 +38,15 @@ function Portal() {
     axios.delete(`http://localhost:3006/posts/${id}`)
       .then(res => {
         setPostData(prevPostdata => prevPostdata.filter(post => post._id !== id));
+        setfilterPost(prevFilterPost => prevFilterPost.filter(post => post._id !== id));
+        
         // console.log(res);
       })
       .catch(error => console.log(error));
   }
 
-  const userseleFUn = (e) => {
-    if (e == 'All' || e == '' ) {
+  const userSelectFun = (e) => {
+    if (e === 'All' || e === '' ) {
       setfilterPost(postdata)
     }
     else {
@@ -74,7 +76,7 @@ function Portal() {
           <li>HOME</li>
 
           <div>
-            <select className=' border outline-rose-900 border-rose-900 rounded-xl w-60 h-9' id='filter' onChange={(e) => userseleFUn(e.target.value)}>
+            <select className=' border outline-rose-900 border-rose-900 rounded-xl w-60 h-9' id='filter' onChange={(e) => userSelectFun(e.target.value)}>
               <option value="">Select Users</option>
               <option value="">All</option>
               {names.map((name, index) => (
